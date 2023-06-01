@@ -15,6 +15,7 @@ public class Paodaria {
      */
     public static void main(String[] args) {
         System.out.print("teste");
+        System.out.print("teste2");
     }
     
 }
