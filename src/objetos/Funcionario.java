@@ -10,19 +10,25 @@ package objetos;
  */
 public class Funcionario {
     private String nome;
+    private String sobrenome;
     private String cpf;
-    private String sexo;
-    private String endereço;
-    private String cidade;
-    private String estado;
+    private String telefone;
+    private String email;
 
-    public Funcionario(String nome, String cpf, String sexo, String endereço, String cidade, String estado) {
+    public Funcionario(String nome, String sobrenome, String cpf, String telefone, String email) {
         this.nome = nome;
+        this.sobrenome = sobrenome;
         this.cpf = cpf;
-        this.sexo = sexo;
-        this.endereço = endereço;
-        this.cidade = cidade;
-        this.estado = estado;
+        this.telefone = telefone;
+        this.email = email;
+    }   
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -33,44 +39,28 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getEndereço() {
-        return endereço;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEmail(String email) {
+        this.email = email;
     }
     
 }
