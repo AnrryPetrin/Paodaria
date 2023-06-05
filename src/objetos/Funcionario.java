@@ -10,18 +10,21 @@ package objetos;
  */
 public class Funcionario {
     private String nome;
-    private String sobrenome;
+    private String senha;
     private String cpf;
     private String telefone;
     private String email;
 
-    public Funcionario(String nome, String sobrenome, String cpf, String telefone, String email) {
+
+    public Funcionario() {
         this.nome = nome;
-        this.sobrenome = sobrenome;
+        this.senha = senha;
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
+    
     }   
+
 
     public String getCpf() {
         return cpf;
@@ -40,11 +43,11 @@ public class Funcionario {
     }
 
     public String getSobrenome() {
-        return sobrenome;
+        return senha;
     }
 
     public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+        this.senha = sobrenome;
     }
 
     public String getTelefone() {
@@ -62,5 +65,26 @@ public class Funcionario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
+     public void limpaFuncionario(){
+       nome = "";
+       cpf = "";
+       senha = "";
+       telefone = "";
+       email = "";
+    } 
 }
