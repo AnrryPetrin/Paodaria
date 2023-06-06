@@ -69,16 +69,15 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel2.setBounds(507, 461, 73, 16);
 
         jlbStatus.setForeground(new java.awt.Color(255, 255, 255));
-        jlbStatus.setText("jLabel3");
         jPanel1.add(jlbStatus);
-        jlbStatus.setBounds(220, 470, 50, 16);
+        jlbStatus.setBounds(220, 470, 50, 0);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo.png"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 501, 495);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 590, 580);
+        jPanel1.setBounds(0, 0, 590, 0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
