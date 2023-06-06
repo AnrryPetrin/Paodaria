@@ -14,6 +14,7 @@ import conexoes.MySQL;
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
         MySQL conectar = new MySQL();
         Funcionario novoFuncionario = new Funcionario();
+        //100% Jeusus
     /**
      * Creates new form TelaCadastroFuncionario
      */
