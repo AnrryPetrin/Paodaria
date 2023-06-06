@@ -34,9 +34,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        txtLogin = new javax.swing.JTextField();
-        txtSenhaLogin = new javax.swing.JTextField();
-        btnLogar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
@@ -55,21 +54,19 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtLogin.setText("cpf Login");
-        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.setText("cpf Login");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLoginActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
-        txtSenhaLogin.setText("Sennha Login");
-        txtSenhaLogin.addActionListener(new java.awt.event.ActionListener() {
+        jTextField2.setText("Sennha Login");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSenhaLoginActionPerformed(evt);
+                jTextField2ActionPerformed(evt);
             }
         });
-
-        btnLogar.setText("jButton1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -78,21 +75,18 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogar)
-                    .addComponent(txtSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(328, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(btnLogar)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Login", jPanel2);
@@ -244,13 +238,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         cadastraFuncionario(novoFuncionario);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void txtSenhaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaLoginActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaLoginActionPerformed
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
@@ -285,13 +279,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                     + "cpf,"
                     + "senha,"
                     + "email,"
-                    + "telefone)"                 
-                + "VALUES ("
+                    + "telefone,"                 
+                + ") VALUES ("
                     + "'" + novoFuncionario.getNome() + "',"
                     + "'" + novoFuncionario.getCpf() + "',"
                     + "'" + novoFuncionario.getSenha() + "',"
                     + "'" + novoFuncionario.getEmail() + "',"
-                    + "'" + novoFuncionario.getTelefone()+"');");
+                    + "'" + novoFuncionario.getTelefone()+ "'" + ");");
             
         } catch (Exception e) {
             
@@ -338,17 +332,16 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnLogar;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSenha;
-    private javax.swing.JTextField txtSenhaLogin;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
