@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author anrry
  */
 public class Util {
-    private void exibirMensagem(String mensagem) {
+    public static void exibirMensagem(String mensagem) {
         JOptionPane.showMessageDialog(null, mensagem);
     }
     
