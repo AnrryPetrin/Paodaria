@@ -16,14 +16,7 @@ public class Funcionario {
     private String email;
 
 
-    public Funcionario() {
-        this.nome = nome;
-        this.senha = senha;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.email = email;
-    
-    }   
+  
 
 
     public String getCpf() {
