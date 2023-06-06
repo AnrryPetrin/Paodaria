@@ -33,9 +33,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" pref="454" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,7 +74,7 @@
                           <Component id="txtSenhaLogin" min="-2" max="-2" attributes="0"/>
                           <Component id="txtLogin" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="328" max="32767" attributes="0"/>
+                      <EmptySpace pref="322" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -156,7 +157,7 @@
                               <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="158" max="32767" attributes="0"/>
+                      <EmptySpace pref="152" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
