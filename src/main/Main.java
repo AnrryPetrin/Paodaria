@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
         System.out.print("teste");
-        System.out.print("teste2");
+        System.out.print("bosta");
     }
     
 }
