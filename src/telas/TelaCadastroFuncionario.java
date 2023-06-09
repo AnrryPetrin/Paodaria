@@ -2,6 +2,8 @@ package telas;
 import javax.swing.JOptionPane;
 import objetos.Funcionario;
 import conexoes.MySQL;
+import java.awt.HeadlessException;
+import java.sql.SQLException;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +16,7 @@ import conexoes.MySQL;
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
         MySQL conectar = new MySQL();
         Funcionario novoFuncionario = new Funcionario();
+    private String cpf;
     /**
      * Creates new form TelaCadastroFuncionario
      */
@@ -70,6 +73,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         });
 
         btnLogar.setText("jButton1");
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -245,7 +253,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
+        cpf = txtLogin.getText();
     }//GEN-LAST:event_txtLoginActionPerformed
 
     private void txtSenhaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaLoginActionPerformed
@@ -255,6 +263,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
+
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+            cpf = txtLogin.getText();
+        buscarFuncionario(cpf);
+            
+       
+    }//GEN-LAST:event_btnLogarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,6 +350,48 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         });
     }
 
+private boolean validarCPF(String cpf) {
+    // Implemente aqui a lógica de validação do CPF
+    // Retorne true se o CPF for válido, caso contrário, retorne false
+    
+    // Exemplo de implementação simples de validação de CPF
+    // (Este exemplo não verifica a estrutura completa do CPF)
+    return cpf.length() == 11;
+}
+
+private void buscarFuncionario(String novoFuncionario) {
+    this.conectar.conectaBanco();
+    
+    String consultaCpf = this.txtLogin.getText();
+    
+    if (!validarCPF(consultaCpf)) {
+        JOptionPane.showMessageDialog(null, "CPF inválido!");
+        return;
+    }
+            
+    try {
+        this.conectar.executarSQL(
+           "SELECT cpf " +                
+           "FROM Funcionario " +
+           "WHERE cpf = '" + txtLogin + "'"
+        );
+        
+        while (this.conectar.getResultSet().next()) {
+            JOptionPane.showMessageDialog(null,"vasco");
+        }
+        
+   
+       
+    } catch (HeadlessException | SQLException e) {            
+        System.out.println("Erro ao consultar cliente: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");
+        
+    } finally {      
+        this.conectar.fechaBanco();   
+    }               
+          
+       
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
@@ -351,4 +408,4 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtSenhaLogin;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
-}
+
