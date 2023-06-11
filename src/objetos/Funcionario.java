@@ -15,10 +15,6 @@ public class Funcionario {
     private String telefone;
     private String email;
 
-
-  
-
-
     public String getCpf() {
         return cpf;
     }
