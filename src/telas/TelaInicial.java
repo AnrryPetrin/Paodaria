@@ -15,7 +15,6 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
-        TelaMenuPrincipal login = new TelaMenuPrincipal();
         new Thread(){
         @Override
         public void run(){
@@ -49,35 +48,36 @@ public class TelaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblStatus = new javax.swing.JLabel();
         jpbCarregando = new javax.swing.JProgressBar();
-        jLabel2 = new javax.swing.JLabel();
-        jlbStatus = new javax.swing.JLabel();
+        lblStatus = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
-        jPanel1.add(lblStatus);
-        lblStatus.setBounds(0, 523, 251, 0);
         jPanel1.add(jpbCarregando);
-        jpbCarregando.setBounds(0, 490, 500, 28);
+        jpbCarregando.setBounds(0, 490, 500, 40);
 
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(507, 461, 73, 16);
-
-        jlbStatus.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jlbStatus);
-        jlbStatus.setBounds(220, 470, 50, 0);
+        lblStatus.setForeground(new java.awt.Color(255, 255, 255));
+        lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStatus.setText("Carregando");
+        jPanel1.add(lblStatus);
+        lblStatus.setBounds(20, 470, 460, 20);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 501, 495);
+        jLabel1.setBounds(0, 0, 500, 490);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 590, 0);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,9 +119,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jlbStatus;
     private javax.swing.JProgressBar jpbCarregando;
     private javax.swing.JLabel lblStatus;
     // End of variables declaration//GEN-END:variables
