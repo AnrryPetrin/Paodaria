@@ -120,6 +120,11 @@ public class CRUDAF extends javax.swing.JFrame {
         });
 
         BtnExcluirProduto.setText("excluir");
+        BtnExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirProdutoActionPerformed(evt);
+            }
+        });
 
         btnCadastrarProduto.setText("Cadastrar");
         btnCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -459,6 +464,10 @@ public class CRUDAF extends javax.swing.JFrame {
      buscarFornecedor(novoFornecedor);
     }//GEN-LAST:event_btnPesquisarFuncionarioActionPerformed
 
+    private void BtnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirProdutoActionPerformed
+       deletarProduto(novoProduto);
+    }//GEN-LAST:event_BtnExcluirProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -561,6 +570,29 @@ public class CRUDAF extends javax.swing.JFrame {
         limparFornecedor();
     }     
 }
+    private void deletarProduto(Produto novoProduto) {
+    this.conectar.conectaBanco();
+    
+    String consultaNome = this.txtConsultaNome.getText(); 
+    
+    try {            
+        this.conectar.updateSQL(
+            "DELETE FROM produto "
+            + "WHERE "
+            + "nome = '" + consultaNome + "'"
+            + ";"            
+        );
+        
+    } catch (Exception e) {
+        System.out.println("Erro ao deletar produto: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao deletar produto");
+    } finally {
+        this.conectar.fechaBanco();
+        
+        JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
+        limparProduto();
+    }     
+}
     
      private void cadastraProduto(Produto novoProduto) {
     this.conectar.conectaBanco();
@@ -631,6 +663,13 @@ public class CRUDAF extends javax.swing.JFrame {
         txtCnpj.setText("");
         txtTelefone.setText("");
         txtConsultaCnpj.setText("");
+    }
+    private void limparProduto(){
+        txtNomeProduto.setText("");
+        txtTipo.setText("");
+        txtDescricao.setText("");
+        txtPreco.setText("");
+        txtConsultaNome.setText("");
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
