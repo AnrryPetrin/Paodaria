@@ -15,21 +15,9 @@ public class Fornecedor {
     private String telefone;
     private String email;
 
-    public Fornecedor(String nome, String sobrenome, String cnpj, String telefone, String email) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.cnpj = cnpj;
-        this.telefone = telefone;
-        this.email = email;
-    }   
+ 
 
-    public String getCpf() {
-        return cnpj;
-    }
-
-    public void setCpf(String cpf) {
-        this.cnpj = cpf;
-    }
+    
 
     public String getNome() {
         return nome;
@@ -62,6 +50,27 @@ public class Fornecedor {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+    public void limpaFornecedor(){
+        setNome("");
+        setCnpj("");
+        setTelefone("");
+        setEmail("");
+    } 
+
+    /**
+     * @return the cnpj
+     */
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    /**
+     * @param cnpj the cnpj to set
+     */
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+  
 }
 
