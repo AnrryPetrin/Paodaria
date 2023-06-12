@@ -262,6 +262,7 @@ public class TelaMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -334,6 +335,9 @@ public class TelaMenu extends javax.swing.JFrame {
         if (this.conectar.getResultSet().next()) {
             // Funcionário válido, permitir acesso
             JOptionPane.showMessageDialog(null, "Acesso permitido");
+            TelaCRUDAF crud = new TelaCRUDAF(); 
+                    crud.setVisible(true); 
+                    dispose(); 
         } else {
             // Funcionário inválido, exibir mensagem de erro
             JOptionPane.showMessageDialog(null, "CPF ou senha incorretos. Tente novamente.");
