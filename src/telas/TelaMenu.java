@@ -76,6 +76,11 @@ public class TelaMenu extends javax.swing.JFrame {
         });
 
         btnLogar.setText("Entrar");
+        btnLogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Cpf:");
 
@@ -300,6 +305,12 @@ public class TelaMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpfActionPerformed
 
+    private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+       String cpf = txtLogin.getText();
+        String senha = txtSenhaLogin.getText();
+        validarFuncionario(cpf, senha);
+    }//GEN-LAST:event_btnLogarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,6 +322,29 @@ public class TelaMenu extends javax.swing.JFrame {
         txtTelefone.setText("");
         
     }
+   private void validarFuncionario(String cpf, String senha) {
+    this.conectar.conectaBanco();
+
+    try {
+        this.conectar.executarSQL(
+            "SELECT cpf, senha FROM Funcionario WHERE cpf = '" + cpf + "' AND senha = '" + senha + "';"
+        );
+
+        if (this.conectar.getResultSet().next()) {
+            // Funcionário válido, permitir acesso
+            JOptionPane.showMessageDialog(null, "Acesso permitido");
+        } else {
+            // Funcionário inválido, exibir mensagem de erro
+            JOptionPane.showMessageDialog(null, "CPF ou senha incorretos. Tente novamente.");
+        }
+    } catch (Exception e) {
+        System.out.println("Erro ao validar funcionário: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao validar funcionário");
+    } finally {
+        this.conectar.fechaBanco();
+    }
+}
+    
     private void cadastraFuncionario(Funcionario novoFuncionario){
         
         this.conectar.conectaBanco(); 
