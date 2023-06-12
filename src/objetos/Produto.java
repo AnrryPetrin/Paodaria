@@ -1,22 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package objetos;
 
-/**
- *
- * @author anrry
- */
 public class Produto {
 
     private String nome;
     private double preco;
     private String descricao;
     private String tipo;
-
-
-
 
     public String getNome() {
         return nome;
@@ -34,30 +23,19 @@ public class Produto {
         this.preco = preco;
     }
 
-    /**
-     * @return the dataFabricacao
-     */
-    public String getdescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    /**
-     */
-    public void setdescricao(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    /**
-     * @return the dataValidade
-     */
-    public String gettipo() {
+    public String getTipo() {
         return tipo;
     }
 
-   
-    public void settipo(String tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-  
 }
