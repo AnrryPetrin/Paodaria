@@ -416,7 +416,7 @@ public class CRUDAF extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+       deletarFornecedor(novoFornecedor);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -538,7 +538,29 @@ public class CRUDAF extends javax.swing.JFrame {
     }
 }
 
+    private void deletarFornecedor(Fornecedor novoFornecedor) {
+    this.conectar.conectaBanco();
     
+    String consultaCnpj = this.txtConsultaCnpj.getText(); 
+    
+    try {            
+        this.conectar.updateSQL(
+            "DELETE FROM fornecedor "
+            + "WHERE "
+            + "cnpj = '" + consultaCnpj + "'"
+            + ";"            
+        );
+        
+    } catch (Exception e) {
+        System.out.println("Erro ao deletar fornecedor: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao deletar fornecedor");
+    } finally {
+        this.conectar.fechaBanco();
+        
+        JOptionPane.showMessageDialog(null, "Fornecedor deletado com sucesso");
+        limparFornecedor();
+    }     
+}
     
      private void cadastraProduto(Produto novoProduto) {
     this.conectar.conectaBanco();
@@ -576,7 +598,6 @@ public class CRUDAF extends javax.swing.JFrame {
         this.conectar.fechaBanco();
     }
 }
-    
     private void cadastraFornecedor(Fornecedor novoFornecedor) {
     this.conectar.conectaBanco();
       
@@ -605,6 +626,12 @@ public class CRUDAF extends javax.swing.JFrame {
     }
 }
  
+    private void limparFornecedor(){
+        txtNome.setText("");
+        txtCnpj.setText("");
+        txtTelefone.setText("");
+        txtConsultaCnpj.setText("");
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
