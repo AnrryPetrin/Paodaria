@@ -9,18 +9,14 @@ package objetos;
  * @author anrry
  */
 public class Produto {
-    private int id;
+
     private String nome;
     private double preco;
-    private String quantidade;
+    private String descricao;
+    private String tipo;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getNome() {
         return nome;
@@ -38,12 +34,30 @@ public class Produto {
         this.preco = preco;
     }
 
-    public String getQuantidade() {
-        return quantidade;
+    /**
+     * @return the dataFabricacao
+     */
+    public String getdescricao() {
+        return descricao;
     }
 
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
+    /**
+     */
+    public void setdescricao(String descricao) {
+        this.descricao = descricao;
     }
 
+    /**
+     * @return the dataValidade
+     */
+    public String gettipo() {
+        return tipo;
+    }
+
+   
+    public void settipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+  
 }
