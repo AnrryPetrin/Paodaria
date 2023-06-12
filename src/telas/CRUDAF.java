@@ -112,6 +112,11 @@ public class CRUDAF extends javax.swing.JFrame {
         });
 
         btnEditarProduto.setText("editar");
+        btnEditarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarProdutoActionPerformed(evt);
+            }
+        });
 
         txtConsultaNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,7 +422,7 @@ public class CRUDAF extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
-        // TODO add your handling code here:
+ atualizarFornecedor(novoFornecedor);
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -467,6 +472,10 @@ public class CRUDAF extends javax.swing.JFrame {
     private void BtnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirProdutoActionPerformed
        deletarProduto(novoProduto);
     }//GEN-LAST:event_BtnExcluirProdutoActionPerformed
+
+    private void btnEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProdutoActionPerformed
+    
+    }//GEN-LAST:event_btnEditarProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -658,6 +667,30 @@ public class CRUDAF extends javax.swing.JFrame {
     }
 }
  
+    private void atualizarFornecedor(Fornecedor novoFornecedor) {
+    this.conectar.conectaBanco();
+    
+    String consultaCnpj = this.txtConsultaCnpj.getText();
+    
+    try {
+        this.conectar.updateSQL(
+            "UPDATE fornecedor SET "
+            + "nome = '" + txtNome.getText() + "',"
+            + "telefone = '" + txtTelefone.getText() + "'"
+            + " WHERE "
+            + "cnpj = '" + consultaCnpj + "'"
+            + ";"
+        );
+    } catch (Exception e) {
+        System.out.println("Erro ao atualizar fornecedor: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao atualizar fornecedor");
+    } finally {
+        this.conectar.fechaBanco();
+    
+        JOptionPane.showMessageDialog(null, "Fornecedor atualizado com sucesso");
+    }
+}
+    
     private void limparFornecedor(){
         txtNome.setText("");
         txtCnpj.setText("");
