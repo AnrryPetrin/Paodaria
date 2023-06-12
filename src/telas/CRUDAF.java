@@ -45,13 +45,14 @@ public class CRUDAF extends javax.swing.JFrame {
         txtPreco = new javax.swing.JTextField();
         txtTipo = new javax.swing.JTextField();
         btnEditarProduto = new javax.swing.JButton();
-        txtNome5 = new javax.swing.JTextField();
+        txtConsultaNome = new javax.swing.JTextField();
         BtnExcluirProduto = new javax.swing.JButton();
         btnCadastrarProduto = new javax.swing.JButton();
+        btnBuscarProduto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtCnpjFornecedorBusca = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        txtConsultaCnpj = new javax.swing.JFormattedTextField();
+        btnPesquisarFuncionario = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -111,19 +112,36 @@ public class CRUDAF extends javax.swing.JFrame {
         });
 
         btnEditarProduto.setText("editar");
-
-        txtNome5.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome5ActionPerformed(evt);
+                btnEditarProdutoActionPerformed(evt);
+            }
+        });
+
+        txtConsultaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtConsultaNomeActionPerformed(evt);
             }
         });
 
         BtnExcluirProduto.setText("excluir");
+        BtnExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirProdutoActionPerformed(evt);
+            }
+        });
 
         btnCadastrarProduto.setText("Cadastrar");
         btnCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarProdutoActionPerformed(evt);
+            }
+        });
+
+        btnBuscarProduto.setText("Buscar");
+        btnBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarProdutoActionPerformed(evt);
             }
         });
 
@@ -139,10 +157,12 @@ public class CRUDAF extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addGap(30, 30, 30)
-                                .addComponent(txtNome5, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtConsultaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6))
-                        .addGap(34, 34, 34))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarProduto)
+                        .addGap(45, 45, 45))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -176,7 +196,8 @@ public class CRUDAF extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNome5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtConsultaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarProduto))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,19 +232,24 @@ public class CRUDAF extends javax.swing.JFrame {
         jLabel3.setText("Pesquisar Fornecedor pelo CNPJ:");
 
         try {
-            txtCnpjFornecedorBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            txtConsultaCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCnpjFornecedorBusca.setText("11.111.111/1111-11");
-        txtCnpjFornecedorBusca.addActionListener(new java.awt.event.ActionListener() {
+        txtConsultaCnpj.setText("11.111.111/1111-11");
+        txtConsultaCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCnpjFornecedorBuscaActionPerformed(evt);
+                txtConsultaCnpjActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jButton1.setText("Pesquisar");
+        btnPesquisarFuncionario.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        btnPesquisarFuncionario.setText("Pesquisar");
+        btnPesquisarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarFuncionarioActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -341,9 +367,9 @@ public class CRUDAF extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCnpjFornecedorBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConsultaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnPesquisarFuncionario)
                 .addContainerGap(24, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -353,8 +379,8 @@ public class CRUDAF extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(txtCnpjFornecedorBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtConsultaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarFuncionario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,11 +422,11 @@ public class CRUDAF extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
-        // TODO add your handling code here:
+ atualizarFornecedor(novoFornecedor);
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+       deletarFornecedor(novoFornecedor);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -419,31 +445,170 @@ public class CRUDAF extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecoActionPerformed
 
-    private void txtCnpjFornecedorBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjFornecedorBuscaActionPerformed
+    private void txtConsultaCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaCnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCnpjFornecedorBuscaActionPerformed
+    }//GEN-LAST:event_txtConsultaCnpjActionPerformed
 
     private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoActionPerformed
 
-    private void txtNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome5ActionPerformed
+    private void txtConsultaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome5ActionPerformed
+    }//GEN-LAST:event_txtConsultaNomeActionPerformed
 
     private void btnCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProdutoActionPerformed
     cadastraProduto(novoProduto);
     }//GEN-LAST:event_btnCadastrarProdutoActionPerformed
 
+    private void btnBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProdutoActionPerformed
+        buscarProduto(novoProduto);
+    }//GEN-LAST:event_btnBuscarProdutoActionPerformed
+
+    private void btnPesquisarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFuncionarioActionPerformed
+     buscarFornecedor(novoFornecedor);
+    }//GEN-LAST:event_btnPesquisarFuncionarioActionPerformed
+
+    private void BtnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirProdutoActionPerformed
+       deletarProduto(novoProduto);
+    }//GEN-LAST:event_BtnExcluirProdutoActionPerformed
+
+    private void btnEditarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProdutoActionPerformed
+        atualizarProduto(novoProduto);
+    }//GEN-LAST:event_btnEditarProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    private void buscarFornecedor(Fornecedor novoFornecedor) {
+    this.conectar.conectaBanco();
+      
+    String consultaCnpj = this.txtConsultaCnpj.getText();
+      
+    try {
+        this.conectar.executarSQL(
+            "SELECT "
+            + "nome, "
+            + "cnpj, "
+            + "telefone "
+            + "FROM "
+            + "fornecedor "
+            + "WHERE "
+            + "cnpj = '" + consultaCnpj + "'"
+            + ";"
+        );
+        
+        if (this.conectar.getResultSet().next()) {
+            novoFornecedor.setNome(this.conectar.getResultSet().getString(1));
+            novoFornecedor.setCnpj(this.conectar.getResultSet().getString(2));
+            novoFornecedor.setTelefone(this.conectar.getResultSet().getString(3));
+            
+            txtNome.setText(novoFornecedor.getNome());
+            txtCnpj.setText(novoFornecedor.getCnpj());
+            txtTelefone.setText(novoFornecedor.getTelefone());
+        } else {
+            JOptionPane.showMessageDialog(null, "Fornecedor não encontrado!");
+        }
+    } catch (Exception e) {
+        System.out.println("Erro ao consultar fornecedor: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao buscar fornecedor");
+    } finally {
+        this.conectar.fechaBanco();
+    }
+}
+    private void buscarProduto(Produto novoProduto) {
+    this.conectar.conectaBanco();
+      
+    String consultaNome = this.txtConsultaNome.getText();
+      
+    try {
+        this.conectar.executarSQL(
+            "SELECT "
+            + "nome,"
+            + "tipo,"
+            + "descricao,"
+            + "preco"
+            + " FROM"
+            + " produto"
+            + " WHERE"
+            + " nome = '" + consultaNome + "'"
+            + ";"
+        );
+        
+        if (this.conectar.getResultSet().next()) {
+            novoProduto.setNome(this.conectar.getResultSet().getString(1));
+            novoProduto.setTipo(this.conectar.getResultSet().getString(2));
+            novoProduto.setDescricao(this.conectar.getResultSet().getString(3));
+            novoProduto.setPreco(this.conectar.getResultSet().getDouble(4));
+            
+            txtNomeProduto.setText(novoProduto.getNome());
+            txtTipo.setText(novoProduto.getTipo());
+            txtDescricao.setText(novoProduto.getDescricao());
+            txtPreco.setText(String.valueOf(novoProduto.getPreco()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Produto não encontrado!");
+        }
+    } catch (Exception e) {
+        System.out.println("Erro ao consultar produto: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao buscar produto");
+    } finally {
+        this.conectar.fechaBanco();
+    }
+}
+
+    private void deletarFornecedor(Fornecedor novoFornecedor) {
+    this.conectar.conectaBanco();
+    
+    String consultaCnpj = this.txtConsultaCnpj.getText(); 
+    
+    try {            
+        this.conectar.updateSQL(
+            "DELETE FROM fornecedor "
+            + "WHERE "
+            + "cnpj = '" + consultaCnpj + "'"
+            + ";"            
+        );
+        
+    } catch (Exception e) {
+        System.out.println("Erro ao deletar fornecedor: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao deletar fornecedor");
+    } finally {
+        this.conectar.fechaBanco();
+        
+        JOptionPane.showMessageDialog(null, "Fornecedor deletado com sucesso");
+        limparFornecedor();
+    }     
+}
+    private void deletarProduto(Produto novoProduto) {
+    this.conectar.conectaBanco();
+    
+    String consultaNome = this.txtConsultaNome.getText(); 
+    
+    try {            
+        this.conectar.updateSQL(
+            "DELETE FROM produto "
+            + "WHERE "
+            + "nome = '" + consultaNome + "'"
+            + ";"            
+        );
+        
+    } catch (Exception e) {
+        System.out.println("Erro ao deletar produto: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao deletar produto");
+    } finally {
+        this.conectar.fechaBanco();
+        
+        JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
+        limparProduto();
+    }     
+}
+    
      private void cadastraProduto(Produto novoProduto) {
     this.conectar.conectaBanco();
       
-    novoProduto.setNome(txtNome.getText());
-    novoProduto.settipo(txtTipo.getText());
-    novoProduto.setdescricao(txtDescricao.getText());
+    novoProduto.setNome(txtNomeProduto.getText());
+    novoProduto.setTipo(txtTipo.getText());
+    novoProduto.setDescricao(txtDescricao.getText());
        try {
         double preco = Double.parseDouble(txtPreco.getText());
         novoProduto.setPreco(preco);
@@ -461,8 +626,8 @@ public class CRUDAF extends javax.swing.JFrame {
     + "preco"   
     + ") VALUES ("
     + "'" + novoProduto.getNome() + "',"
-    + "'" + novoProduto.gettipo() + "',"
-    + "'" + novoProduto.getdescricao() + "',"
+    + "'" + novoProduto.getTipo() + "',"
+    + "'" + novoProduto.getDescricao() + "',"
     + "'" + novoProduto.getPreco() + "'" + ");");
         JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
 
@@ -474,7 +639,6 @@ public class CRUDAF extends javax.swing.JFrame {
         this.conectar.fechaBanco();
     }
 }
-    
     private void cadastraFornecedor(Fornecedor novoFornecedor) {
     this.conectar.conectaBanco();
       
@@ -503,6 +667,65 @@ public class CRUDAF extends javax.swing.JFrame {
     }
 }
  
+    private void atualizarFornecedor(Fornecedor novoFornecedor) {
+    this.conectar.conectaBanco();
+    
+    String consultaCnpj = this.txtConsultaCnpj.getText();
+    
+    try {
+        this.conectar.updateSQL(
+            "UPDATE fornecedor SET "
+            + "nome = '" + txtNome.getText() + "',"
+            + "telefone = '" + txtTelefone.getText() + "'"
+            + " WHERE "
+            + "cnpj = '" + consultaCnpj + "'"
+            + ";"
+        );
+    } catch (Exception e) {
+        System.out.println("Erro ao atualizar fornecedor: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao atualizar fornecedor");
+    } finally {
+        this.conectar.fechaBanco();
+        limparFornecedor();
+        JOptionPane.showMessageDialog(null, "Fornecedor atualizado com sucesso");
+    }
+}
+    private void atualizarProduto (Produto novoProduto){
+    String consultaNome = this.txtConsultaNome.getText();
+
+try {
+    this.conectar.updateSQL(
+        "UPDATE produto SET "
+        + "nome = '" + txtNome.getText() + "',"
+        + "tipo = '" + txtTipo.getText() + "',"
+        + "descricao = '" + txtDescricao.getText() + "',"
+        + "preco = " + Double.parseDouble(txtPreco.getText())
+        + " WHERE "
+        + "nome = '" + consultaNome + "'"
+        + ";"
+    );
+} catch (Exception e) {
+    System.out.println("Erro ao atualizar produto: " + e.getMessage());
+    JOptionPane.showMessageDialog(null, "Erro ao atualizar produto");
+} finally {
+    this.conectar.fechaBanco();
+    limparProduto();
+    JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso");
+}}
+    
+    private void limparFornecedor(){
+        txtNome.setText("");
+        txtCnpj.setText("");
+        txtTelefone.setText("");
+        txtConsultaCnpj.setText("");
+    }
+    private void limparProduto(){
+        txtNomeProduto.setText("");
+        txtTipo.setText("");
+        txtDescricao.setText("");
+        txtPreco.setText("");
+        txtConsultaNome.setText("");
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -539,11 +762,12 @@ public class CRUDAF extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEditar;
     private javax.swing.JButton BtnExcluirProduto;
+    private javax.swing.JButton btnBuscarProduto;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCadastrarProduto;
     private javax.swing.JButton btnEditarProduto;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPesquisarFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -563,10 +787,10 @@ public class CRUDAF extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JFormattedTextField txtCnpj;
-    private javax.swing.JFormattedTextField txtCnpjFornecedorBusca;
+    private javax.swing.JFormattedTextField txtConsultaCnpj;
+    private javax.swing.JTextField txtConsultaNome;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome5;
     private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtPreco;
     private javax.swing.JTextField txtTelefone;

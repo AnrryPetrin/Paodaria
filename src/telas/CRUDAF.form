@@ -57,12 +57,14 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="txtNome5" pref="369" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtConsultaNome" min="-2" pref="277" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnBuscarProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
@@ -107,7 +109,8 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" max="32767" attributes="0"/>
-                          <Component id="txtNome5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtConsultaNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBuscarProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -219,16 +222,22 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="editar"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtNome5">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarProdutoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtConsultaNome">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtConsultaNomeActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnExcluirProduto">
               <Properties>
                 <Property name="text" type="java.lang.String" value="excluir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExcluirProdutoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCadastrarProduto">
               <Properties>
@@ -236,6 +245,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarProdutoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBuscarProduto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarProdutoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -257,9 +274,9 @@
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCnpjFornecedorBusca" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtConsultaCnpj" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPesquisarFuncionario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
@@ -271,8 +288,8 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" max="-2" attributes="0">
                           <Component id="jLabel3" alignment="3" pref="39" max="32767" attributes="0"/>
-                          <Component id="txtCnpjFornecedorBusca" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtConsultaCnpj" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="btnPesquisarFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -292,7 +309,7 @@
                 <Property name="text" type="java.lang.String" value="Pesquisar Fornecedor pelo CNPJ:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtCnpjFornecedorBusca">
+            <Component class="javax.swing.JFormattedTextField" name="txtConsultaCnpj">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="##.###.###/####-##" subtype="-1" type="5"/>
@@ -300,16 +317,19 @@
                 <Property name="text" type="java.lang.String" value="11.111.111/1111-11"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCnpjFornecedorBuscaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtConsultaCnpjActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnPesquisarFuncionario">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Comic Sans MS" size="12" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarFuncionarioActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
