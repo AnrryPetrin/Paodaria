@@ -398,7 +398,7 @@ public class TelaCRUDAF extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 294, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Compra", jPanel3);
@@ -411,7 +411,10 @@ public class TelaCRUDAF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -690,28 +693,30 @@ public class TelaCRUDAF extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Fornecedor atualizado com sucesso");
     }
 }
-    private void atualizarProduto (Produto novoProduto){
+   private void atualizarProduto(Produto novoProduto) {
+       this.conectar.conectaBanco();
     String consultaNome = this.txtConsultaNome.getText();
 
-try {
-    this.conectar.updateSQL(
-        "UPDATE produto SET "
-        + "nome = '" + txtNome.getText() + "',"
-        + "tipo = '" + txtTipo.getText() + "',"
-        + "descricao = '" + txtDescricao.getText() + "',"
-        + "preco = " + Double.parseDouble(txtPreco.getText())
-        + " WHERE "
-        + "nome = '" + consultaNome + "'"
-        + ";"
-    );
-} catch (Exception e) {
-    System.out.println("Erro ao atualizar produto: " + e.getMessage());
-    JOptionPane.showMessageDialog(null, "Erro ao atualizar produto");
-} finally {
-    this.conectar.fechaBanco();
-    limparProduto();
-    JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso");
-}}
+    try {
+        this.conectar.updateSQL(
+            "UPDATE produto SET "
+            + "nome = '" + txtNomeProduto.getText() + "',"
+            + "tipo = '" + txtTipo.getText() + "',"
+            + "descricao = '" + txtDescricao.getText() + "',"
+            + "preco = " + Double.valueOf(txtPreco.getText())
+            + " WHERE "
+            + "nome = '" + consultaNome + "'"
+            + ";"
+        );
+    } catch (Exception e) {
+        System.out.println("Erro ao atualizar produto: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao atualizar produto");
+    } finally {
+        this.conectar.fechaBanco();
+        limparProduto();
+        JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso");
+    }
+}
     
     private void limparFornecedor(){
         txtNome.setText("");
