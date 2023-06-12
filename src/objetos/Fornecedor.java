@@ -10,14 +10,18 @@ package objetos;
  */
 public class Fornecedor {
     private String nome;
-    private String sobrenome;
     private String cnpj;
     private String telefone;
-    private String email;
 
- 
-
+    public Fornecedor(String nome, String cnpj, String telefone) {
+        this.nome = nome;
+        this.cnpj = cnpj;
+        this.telefone = telefone;
+    }
     
+    public Fornecedor() {
+        
+    }
 
     public String getNome() {
         return nome;
@@ -27,14 +31,14 @@ public class Fornecedor {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
-
+    
     public String getTelefone() {
         return telefone;
     }
@@ -43,34 +47,11 @@ public class Fornecedor {
         this.telefone = telefone;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
     public void limpaFornecedor(){
         setNome("");
         setCnpj("");
         setTelefone("");
-        setEmail("");
     } 
-
-    /**
-     * @return the cnpj
-     */
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    /**
-     * @param cnpj the cnpj to set
-     */
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-  
+    
 }
 

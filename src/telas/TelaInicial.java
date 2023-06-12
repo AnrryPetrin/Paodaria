@@ -30,6 +30,10 @@ public class TelaInicial extends javax.swing.JFrame {
                     lblStatus.setText("Carregando tabelas...");    
                 } else if(jpbCarregando.getValue()<=99){
                     lblStatus.setText("O sistema está sendo iniciado...");
+                } else {
+                    TelaMenu menu = new TelaMenu(); 
+                    menu.setVisible(true); 
+                    dispose(); 
                 }
             }
             }catch(InterruptedException ex){

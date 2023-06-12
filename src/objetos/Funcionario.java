@@ -31,12 +31,12 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.senha = sobrenome;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getTelefone() {
@@ -53,20 +53,6 @@ public class Funcionario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * @return the senha
-     */
-    public String getSenha() {
-        return senha;
-    }
-
-    /**
-     * @param senha the senha to set
-     */
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
     
      public void limpaFuncionario(){
