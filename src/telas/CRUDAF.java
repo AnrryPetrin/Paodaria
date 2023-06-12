@@ -51,8 +51,8 @@ public class CRUDAF extends javax.swing.JFrame {
         btnBuscarProduto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtCnpjFornecedorBusca = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
+        txtConsultaCnpj = new javax.swing.JFormattedTextField();
+        btnPesquisarFuncionario = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -222,19 +222,24 @@ public class CRUDAF extends javax.swing.JFrame {
         jLabel3.setText("Pesquisar Fornecedor pelo CNPJ:");
 
         try {
-            txtCnpjFornecedorBusca.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            txtConsultaCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCnpjFornecedorBusca.setText("11.111.111/1111-11");
-        txtCnpjFornecedorBusca.addActionListener(new java.awt.event.ActionListener() {
+        txtConsultaCnpj.setText("11.111.111/1111-11");
+        txtConsultaCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCnpjFornecedorBuscaActionPerformed(evt);
+                txtConsultaCnpjActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jButton1.setText("Pesquisar");
+        btnPesquisarFuncionario.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        btnPesquisarFuncionario.setText("Pesquisar");
+        btnPesquisarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarFuncionarioActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -352,9 +357,9 @@ public class CRUDAF extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCnpjFornecedorBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConsultaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnPesquisarFuncionario)
                 .addContainerGap(24, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -364,8 +369,8 @@ public class CRUDAF extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(txtCnpjFornecedorBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtConsultaCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarFuncionario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -430,9 +435,9 @@ public class CRUDAF extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecoActionPerformed
 
-    private void txtCnpjFornecedorBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjFornecedorBuscaActionPerformed
+    private void txtConsultaCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaCnpjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCnpjFornecedorBuscaActionPerformed
+    }//GEN-LAST:event_txtConsultaCnpjActionPerformed
 
     private void txtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoActionPerformed
         // TODO add your handling code here:
@@ -450,9 +455,49 @@ public class CRUDAF extends javax.swing.JFrame {
         buscarProduto(novoProduto);
     }//GEN-LAST:event_btnBuscarProdutoActionPerformed
 
+    private void btnPesquisarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFuncionarioActionPerformed
+     buscarFornecedor(novoFornecedor);
+    }//GEN-LAST:event_btnPesquisarFuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    private void buscarFornecedor(Fornecedor novoFornecedor) {
+    this.conectar.conectaBanco();
+      
+    String consultaCnpj = this.txtConsultaCnpj.getText();
+      
+    try {
+        this.conectar.executarSQL(
+            "SELECT "
+            + "nome, "
+            + "cnpj, "
+            + "telefone "
+            + "FROM "
+            + "fornecedor "
+            + "WHERE "
+            + "cnpj = '" + consultaCnpj + "'"
+            + ";"
+        );
+        
+        if (this.conectar.getResultSet().next()) {
+            novoFornecedor.setNome(this.conectar.getResultSet().getString(1));
+            novoFornecedor.setCnpj(this.conectar.getResultSet().getString(2));
+            novoFornecedor.setTelefone(this.conectar.getResultSet().getString(3));
+            
+            txtNome.setText(novoFornecedor.getNome());
+            txtCnpj.setText(novoFornecedor.getCnpj());
+            txtTelefone.setText(novoFornecedor.getTelefone());
+        } else {
+            JOptionPane.showMessageDialog(null, "Fornecedor não encontrado!");
+        }
+    } catch (Exception e) {
+        System.out.println("Erro ao consultar fornecedor: " + e.getMessage());
+        JOptionPane.showMessageDialog(null, "Erro ao buscar fornecedor");
+    } finally {
+        this.conectar.fechaBanco();
+    }
+}
     private void buscarProduto(Produto novoProduto) {
     this.conectar.conectaBanco();
       
@@ -601,7 +646,7 @@ public class CRUDAF extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrarProduto;
     private javax.swing.JButton btnEditarProduto;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPesquisarFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -621,7 +666,7 @@ public class CRUDAF extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JFormattedTextField txtCnpj;
-    private javax.swing.JFormattedTextField txtCnpjFornecedorBusca;
+    private javax.swing.JFormattedTextField txtConsultaCnpj;
     private javax.swing.JTextField txtConsultaNome;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtNome;
