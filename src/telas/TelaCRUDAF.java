@@ -5,12 +5,6 @@ import conexao.MySQL;
 import javax.swing.JOptionPane;
 import objetos.Fornecedor;
 import objetos.Produto;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.SQLException;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 
 /**
  *
@@ -55,8 +49,8 @@ public class TelaCRUDAF extends javax.swing.JFrame {
         BtnExcluirProduto = new javax.swing.JButton();
         btnCadastrarProduto = new javax.swing.JButton();
         btnBuscarProduto = new javax.swing.JButton();
-        cbxFornecedor = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
+        cbxFornecedor = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtConsultaCnpj = new javax.swing.JFormattedTextField();
@@ -179,12 +173,6 @@ public class TelaCRUDAF extends javax.swing.JFrame {
             }
         });
 
-        cbxFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxFornecedorActionPerformed(evt);
-            }
-        });
-
         jLabel12.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jLabel12.setText("Fornecedor:");
 
@@ -204,21 +192,26 @@ public class TelaCRUDAF extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeProduto)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCadastrarProduto)
-                        .addGap(5, 5, 5)
-                        .addComponent(btnEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtDescricao, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTipo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPreco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCadastrarProduto)
+                                .addGap(5, 5, 5)
+                                .addComponent(btnEditarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtDescricao, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTipo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPreco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel12))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addComponent(cbxFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(197, 197, 197))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,12 +247,12 @@ public class TelaCRUDAF extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(cbxFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -491,14 +484,13 @@ public class TelaCRUDAF extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
-                                    .addComponent(jLabel15)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))
+                                    .addComponent(jLabel15)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2)))))
                         .addGap(10, 10, 10))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(89, 89, 89)
@@ -554,19 +546,15 @@ public class TelaCRUDAF extends javax.swing.JFrame {
     private void BtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditarActionPerformed
  atualizarFornecedor(novoFornecedor);
          preencherComboBoxFornecedores(cbxFornecedor);
-
+ 
     }//GEN-LAST:event_BtnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
        deletarFornecedor(novoFornecedor);
-               preencherComboBoxFornecedores(cbxFornecedor);
-
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         cadastraFornecedor (novoFornecedor);
-        preencherComboBoxFornecedores(cbxFornecedor);
-
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
@@ -615,52 +603,8 @@ public class TelaCRUDAF extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-                preencherComboBoxFornecedores(cbxFornecedor);
-
-    }//GEN-LAST:event_formWindowOpened
-
-    private void cbxFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFornecedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxFornecedorActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTabbedPane1MouseClicked
-    
-    private void preencherComboBoxFornecedores(JComboBox<String> cbxFornecedor) {
-        this.conectar.conectaBanco();
-
-        try {
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-
-            Connection connection = conectar.getConn();
-            Statement statement = connection.createStatement();
-
-            String query = "SELECT nome FROM Fornecedor";
-            ResultSet resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                String nomeFornecedor = resultSet.getString("nome");
-                model.addElement(nomeFornecedor);
-            }
-            cbxFornecedor.setModel(model);
-            resultSet.close();
-            statement.close();
-        } catch (SQLException e) {
-            System.out.println("Erro ao obter fornecedores: " + e.getMessage());
-        } finally {
-            conectar.fechaBanco(); // Fecha a conexão com o banco de dados
-        }
-    }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -802,20 +746,18 @@ public class TelaCRUDAF extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Erro ao obter o preço do produto");
         return;
     }
-    int fornecedor_id = cbxFornecedor.getSelectedIndex() + 1;   
+       
     try {
    conectar.insertSQL("INSERT INTO Produto ("
     + "nome,"
     + "tipo,"
     + "descricao,"
-    + "preco,"
-    + "fornecedor"       
+    + "preco"   
     + ") VALUES ("
     + "'" + novoProduto.getNome() + "',"
     + "'" + novoProduto.getTipo() + "',"
     + "'" + novoProduto.getDescricao() + "',"
-    + "'" + novoProduto.getPreco() + "'," +
-            fornecedor_id + ");");
+    + "'" + novoProduto.getPreco() + "'" + ");");
         JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
 
     } catch (Exception e) {
